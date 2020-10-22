@@ -26,5 +26,19 @@ const moveToPrevSlide = () => {
     track.style.transition = `transform 250ms ease-in-out`;
 }
 
+track.addEventListener('transitionend', () => {
+    slides = document.querySelectorAll('.slider__slide');
+    if (slides[index].id === firstClone.id) {
+        index = 1;
+        track.style.transform = `translateX(${-slideWidth * index}px)`;
+        track.style.transition = `none`;
+    }
+
+    if (slides[index].id === lastClone.id) {
+        index = slides.length - 2;
+        track.style.transform = `translateX(${-slideWidth * index}px)`;
+        track.style.transition = `none`;
+    }
+})
 nextButton.addEventListener('click', moveToNextSlide);
 prevButton.addEventListener('click', moveToPrevSlide);
