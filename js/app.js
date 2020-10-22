@@ -11,3 +11,6 @@ firstClone.id = `first-clone`;
 lastClone.id = `last-clone`;
 track.append(firstClone);
 track.prepend(lastClone);
+
+const slideWidth = slides[index].clientWidth;
+track.style.transform = `translateX(${-slideWidth * index}px)`;
