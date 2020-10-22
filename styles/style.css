@@ -32,6 +32,8 @@ html {
     height: 400px;
     margin: 0 auto;
     background: #fff;
+    border-radius: 25px 0 25px 0;
+    box-shadow: 18px 18px 0px 0px rgba(255, 255, 255, 0.5);
 }
 
 .slider__track {
