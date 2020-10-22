@@ -15,18 +15,7 @@ track.prepend(lastClone);
 const slideWidth = slides[index].clientWidth;
 track.style.transform = `translateX(${-slideWidth * index}px)`;
 
-const moveToNextSlide = () => {
-    index++;
-    track.style.transform = `translateX(${-slideWidth * index}px)`;
-    track.style.transition = `transform 250ms ease-in-out`;
-}
-const moveToPrevSlide = () => {
-    index--;
-    track.style.transform = `translateX(${-slideWidth * index}px)`;
-    track.style.transition = `transform 250ms ease-in-out`;
-}
-
-track.addEventListener('transitionend', () => {
+const isTransitionend = () => {
     slides = document.querySelectorAll('.slider__slide');
     if (slides[index].id === firstClone.id) {
         index = 1;
@@ -39,6 +28,21 @@ track.addEventListener('transitionend', () => {
         track.style.transform = `translateX(${-slideWidth * index}px)`;
         track.style.transition = `none`;
     }
-})
+}
+
+const moveToNextSlide = () => {
+    if (index >= slides.length - 1) return;
+    index++;
+    track.style.transform = `translateX(${-slideWidth * index}px)`;
+    track.style.transition = `transform 250ms ease-in-out`;
+}
+const moveToPrevSlide = () => {
+    if (index <= 0) return;
+    index--;
+    track.style.transform = `translateX(${-slideWidth * index}px)`;
+    track.style.transition = `transform 250ms ease-in-out`;
+}
+
+track.addEventListener('transitionend', isTransitionend);
 nextButton.addEventListener('click', moveToNextSlide);
 prevButton.addEventListener('click', moveToPrevSlide);
