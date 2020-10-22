@@ -1,0 +1,20 @@
+/* Variables */
+:root {
+    --clr-rose: linear-gradient(to right, #ffafbd 0%,#ffc3a0 100%);
+}
+
+/* Globals */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--clr-rose);
+    font-size: 16px;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Slider */
