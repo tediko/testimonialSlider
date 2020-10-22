@@ -20,20 +20,25 @@ html {
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
     color: var(--clr-black);
 }
 
 /* Slider */
 .slider {
-    position: relative;
+    display: flex;
+    align-items: center;
     width: 60%;
-    height: 400px;
+    height: 600px;
     margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider__container {
+    position: relative;
+    height: 400px;
     background: #fff;
     border-radius: 25px 0 25px 0;
-    box-shadow: 18px 18px 0px 0px rgba(255, 255, 255, 0.5);
 }
 
 .slider__track {
