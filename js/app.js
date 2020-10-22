@@ -14,3 +14,17 @@ track.prepend(lastClone);
 
 const slideWidth = slides[index].clientWidth;
 track.style.transform = `translateX(${-slideWidth * index}px)`;
+
+const moveToNextSlide = () => {
+    index++;
+    track.style.transform = `translateX(${-slideWidth * index}px)`;
+    track.style.transition = `transform 250ms ease-in-out`;
+}
+const moveToPrevSlide = () => {
+    index--;
+    track.style.transform = `translateX(${-slideWidth * index}px)`;
+    track.style.transition = `transform 250ms ease-in-out`;
+}
+
+nextButton.addEventListener('click', moveToNextSlide);
+prevButton.addEventListener('click', moveToPrevSlide);
