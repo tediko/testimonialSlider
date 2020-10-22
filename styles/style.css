@@ -56,6 +56,8 @@ html {
     transform: translateY(-50%);
     width: 150px;
     height: 150px;
+    border: 5px solid #fff;
+    border-radius: 50%;
 }
 
 .slider__image img {
