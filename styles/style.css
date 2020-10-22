@@ -1,5 +1,6 @@
 /* Variables */
 :root {
+    --clr-black: #111111;
     --clr-rose: linear-gradient(to right, #ffafbd 0%,#ffc3a0 100%);
     --clr-gray-light: #DCDCDC;
     --clr-silver: #A9A9A9;
@@ -21,6 +22,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--clr-black);
 }
 
 /* Slider */
@@ -100,5 +102,32 @@ html {
 }
 
 .slider__controls {
-    display: none;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
 }
+
+.slider__button-prev,
+.slider__button-next {
+    background: transparent;
+    border: 0;
+    font-size: 3rem;
+    padding: 10px;
+    cursor: pointer;
+    color: var(--clr-gray-light);
+    transition: color 250ms ease-in;
+}
+
+.slider__button-prev:hover,
+.slider__button-next:hover {
+    color: var(--clr-black);
+}
+
+.slider__button-prev:active,
+.slider__button-next:active {
+    font-size: 2.5rem;
+}
+
