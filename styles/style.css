@@ -140,3 +140,21 @@ html {
     font-size: 2.5rem;
 }
 
+.slider__indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider__indicator {
+    background: var(--clr-gray-light);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 10px;
+    border: 0;
+}
+
+.slider__indicator.active {
+    background: var(--clr-black);
+}
