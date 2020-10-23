@@ -1,7 +1,6 @@
 const slider = document.querySelector('.slider__container');
 const track = document.querySelector('.slider__track');
-const nextButton = document.querySelector('.slider__button-next');
-const prevButton = document.querySelector('.slider__button-prev');
+const buttons = document.querySelectorAll('[data-controls]');
 let slides = document.querySelectorAll('.slider__slide');
 const delay = 3000;
 let index = 1;
@@ -58,5 +57,9 @@ slideShow();
 slider.addEventListener('mouseenter', removeSlideShow);
 slider.addEventListener('mouseleave', slideShow);
 track.addEventListener('transitionend', isTransitionend);
-nextButton.addEventListener('click', moveToNextSlide);
-prevButton.addEventListener('click', moveToPrevSlide);
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const buttonDir = button.dataset.controls;
+        buttonDir == 'prev' ? moveToPrevSlide() : moveToNextSlide();
+    })
+}) 
