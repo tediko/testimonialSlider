@@ -1,5 +1,4 @@
-const slider = document.querySelector('.slider');
-const sliderContainer = document.querySelector('.slider__container');
+const slider = document.querySelector('.slider__container');
 const track = document.querySelector('.slider__track');
 const nextButton = document.querySelector('.slider__button-next');
 const prevButton = document.querySelector('.slider__button-prev');
@@ -56,8 +55,8 @@ const moveToPrevSlide = () => {
 
 
 slideShow();
-sliderContainer.addEventListener('mouseenter', removeSlideShow);
-sliderContainer.addEventListener('mouseleave', slideShow);
+slider.addEventListener('mouseenter', removeSlideShow);
+slider.addEventListener('mouseleave', slideShow);
 track.addEventListener('transitionend', isTransitionend);
 nextButton.addEventListener('click', moveToNextSlide);
 prevButton.addEventListener('click', moveToPrevSlide);
