@@ -1,10 +1,12 @@
 const slider = document.querySelector('.slider');
+const sliderContainer = document.querySelector('.slider__container');
 const track = document.querySelector('.slider__track');
 const nextButton = document.querySelector('.slider__button-next');
 const prevButton = document.querySelector('.slider__button-prev');
 let slides = document.querySelectorAll('.slider__slide');
-let index = 1;
 const delay = 3000;
+let index = 1;
+let slideInterval;
 
 const firstClone = slides[0].cloneNode(true);
 const lastClone = slides[slides.length - 1].cloneNode(true);
@@ -17,7 +19,11 @@ const slideWidth = slides[index].clientWidth;
 track.style.transform = `translateX(${-slideWidth * index}px)`;
 
 const slideShow = () => {
-    setInterval(moveToNextSlide, delay);
+    slideInterval = setInterval(moveToNextSlide, delay);
+}
+
+const removeSlideShow = () => {
+    clearInterval(slideInterval);
 }
 
 const isTransitionend = () => {
@@ -50,6 +56,8 @@ const moveToPrevSlide = () => {
 
 
 slideShow();
+sliderContainer.addEventListener('mouseenter', removeSlideShow);
+sliderContainer.addEventListener('mouseleave', slideShow);
 track.addEventListener('transitionend', isTransitionend);
 nextButton.addEventListener('click', moveToNextSlide);
 prevButton.addEventListener('click', moveToPrevSlide);
