@@ -58,6 +58,14 @@ const moveToPrevSlide = () => {
     track.style.transition = `transform 250ms ease-in-out`;
 }
 
+function moveToSlide () {
+    current = this.dataset.idx;
+    changeIndicators();
+    index = parseFloat(current) + 1;
+    track.style.transform = `translateX(${-slideWidth * index}px)`;
+    track.style.transition = `transform 250ms ease-in-out`;
+}
+
 const changeIndicators = () => {
     removeAllIndicators();
     indicators.forEach(indicator => {
@@ -92,4 +100,7 @@ buttons.forEach(button => {
         const buttonDir = button.dataset.controls;
         buttonDir == 'prev' ? moveToPrevSlide() : moveToNextSlide();
     })
+})
+indicators.forEach(indicator => {
+    indicator.addEventListener('click', moveToSlide);
 })
