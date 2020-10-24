@@ -18,11 +18,14 @@ html {
     font-family: 'Raleway', sans-serif;
     background: var(--clr-rose);
     font-size: 16px;
+    color: var(--clr-black);
+}
+
+body {
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
-    color: var(--clr-black);
 }
 
 /* Slider */
@@ -169,4 +172,69 @@ html {
     background: var(--clr-black);
     opacity: 0.7;
     
+}
+
+/* Slider media queries */
+@media (max-width: 1128px) {
+    .slider__container {
+        width: 100%;
+    }
+
+    .slider__ref {
+        max-width: 480px;
+    }
+
+    .slider__slide {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 780px) {
+    .slider {
+        height: 650px;
+    }
+
+    .slider__container {
+        height: 480px;
+    }
+
+    .slider__ref {
+        max-width: 300px;
+    }
+
+    .slider__controls {
+        justify-content: center;
+        top: 100%;
+        transform: translateY(-95%);
+    }
+
+    .slider__button-prev,
+    .slider__button-next {
+        font-size: 2rem; 
+    }
+
+    .slider__button-prev:active,
+    .slider__button-next:active {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider {
+        width: 80%;
+        height: 650px;
+    }
+
+    .slider__container {
+        height: 460px;
+    }
+    .slider__image {
+        width: 125px;
+        height: 125px;
+    }
+
+    .slider__ref {
+        max-width: 250px;
+        font-size: 0.875rem;
+    }
 }
