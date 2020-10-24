@@ -19,8 +19,9 @@ track.prepend(lastClone);
 
 // Gets a width for each active slide.
 // And set first slide on page load. 
-const slideWidth = slides[index].clientWidth;
+let slideWidth = slides[index].clientWidth;
 track.style.transform = `translateX(${-slideWidth * index}px)`;
+
 
 // The interval triggers a function moveToNextSlide, creating an automatic slider effect.
 // It is used on page load & also active it when mouse leave slider.
@@ -112,6 +113,11 @@ const removeAllIndicators = () => {
     })
 }
 
+// Fn to resize slideWidth while resizing window to make it responsive. 
+const changeSlideWidth = () => {
+    slideWidth = slides[index].clientWidth;
+    track.style.transform = `translateX(${-slideWidth * index}px)`;
+}
 
 slideShow();
 
@@ -126,3 +132,4 @@ buttons.forEach(button => {
     })
 })
 indicators.forEach(indicator => indicator.addEventListener('click', moveToSlide));
+window.onresize = changeSlideWidth;
