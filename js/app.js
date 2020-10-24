@@ -132,4 +132,4 @@ buttons.forEach(button => {
     })
 })
 indicators.forEach(indicator => indicator.addEventListener('click', moveToSlide));
-window.onresize = changeSlideWidth;
+window.addEventListener('resize', changeSlideWidth);
